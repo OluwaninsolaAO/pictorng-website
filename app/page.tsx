@@ -48,11 +48,9 @@ export default function Home() {
         </div>
       </div>
       <div className="max-w-[1400px] mx-auto p-5 space-y-8">
-        <hr className="max-w-[700px] mx-auto border-0 h-[2px] bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
         <h2 className="text-4xl md:text-5xl break-words hyphens-auto text-center text-balance">
           What We Engineer for the Bold
         </h2>
-
         <div
           className="grid grid-cols-1 lg:grid-cols-3 gap-8 break-words hyphens-auto"
           lang="de"
@@ -70,7 +68,19 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div id="#booking">
+      <hr className="max-w-[700px] mx-auto border-0 h-[2px] bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+
+      <div className="max-w-[1400px] mx-auto p-5 space-y-8">
+        <div className="text-center text-balance space-y-4">
+          <h2 className="text-4xl md:text-5xl break-words hyphens-auto">
+            Let’s Create What’s Next
+          </h2>
+          <p className="max-w-[1100px] m-auto">
+            Select a time that works for you and meet with our team to discuss
+            how we can bring precision, creativity, and tech brilliance to your
+            next project.
+          </p>
+        </div>
         <div
           className="calendly-inline-widget min-w-[320px] h-[700px]"
           data-url="https://calendly.com/pictor-info?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=101828&text_color=62748e"
