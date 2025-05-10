@@ -39,4 +39,14 @@ body {
     @apply font-[family-name:var(--font-geist-mono)];
     @apply uppercase;
   }
+
+  p {
+    @apply text-slate-500;
+  }
+
+  a {
+    button {
+      @apply hover:cursor-pointer;
+    }
+  }
 }

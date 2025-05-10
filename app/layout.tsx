@@ -45,6 +45,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="bg-gray-900 text-white py-6 mt-8">
+          <div className="max-w-[1400px] mx-auto text-center">
+            <p className="text-sm text-gray-400">
+              &copy; {new Date().getFullYear()} PictorNG. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
