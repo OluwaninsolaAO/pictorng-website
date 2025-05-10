@@ -47,6 +47,7 @@ body {
   a {
     button {
       @apply hover:cursor-pointer;
+      @apply hover:translate-y-1 transition-all ease-in-out;
     }
   }
 }

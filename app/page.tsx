@@ -1,5 +1,6 @@
 import Button from '@/components/mods/button';
 import Link from 'next/link';
+import CalendlyBooking from './components/calendly';
 
 const services = [
   {
@@ -23,7 +24,7 @@ export default function Home() {
   return (
     <div className="min-h-dvh space-y-18">
       <div className="max-w-[1400px] mx-auto p-5">
-        <div className="rounded-2xl px-8 py-18 bg-gray-900 space-y-6">
+        <div className="rounded-2xl px-8 py-18 bg-gradient-to-br from-gray-900 via-transparent to-gray-900 border border-gray-800 space-y-6">
           <div className="text-center text-balance space-y-4">
             <h1
               className="text-5xl md:text-7xl lg:text-8xl break-words hyphens-auto bg-gradient-to-br from-red-200 via-slate-100 to-blue-400 text-transparent bg-clip-text"
@@ -58,7 +59,7 @@ export default function Home() {
           {services.map((service, index) => {
             return (
               <div
-                className="rounded-2xl p-8 bg-gray-900 space-y-2"
+                className="rounded-2xl p-8  space-y-2 border border-gray-800 bg-gradient-to-br from-gray-900 via-transparent to-gray-900 text-center content-center lg:hover:translate-y-2 transition-all ease-in-out"
                 key={index}
               >
                 <h2 className="text-2xl">{service.title}</h2>
@@ -69,8 +70,7 @@ export default function Home() {
         </div>
       </div>
       <hr className="max-w-[700px] mx-auto border-0 h-[2px] bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
-
-      <div className="max-w-[1400px] mx-auto p-5 space-y-8">
+      <div className="max-w-[1400px] mx-auto p-5 space-y-4">
         <div className="text-center text-balance space-y-4">
           <h2 className="text-4xl md:text-5xl break-words hyphens-auto">
             Let’s Create What’s Next
@@ -81,15 +81,7 @@ export default function Home() {
             next project.
           </p>
         </div>
-        <div
-          className="calendly-inline-widget min-w-[320px] h-[700px]"
-          data-url="https://calendly.com/pictor-info?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=101828&text_color=62748e"
-        ></div>
-        <script
-          type="text/javascript"
-          src="https://assets.calendly.com/assets/external/widget.js"
-          async
-        ></script>
+        <CalendlyBooking />
       </div>
     </div>
   );
