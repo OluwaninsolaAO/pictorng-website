@@ -7,16 +7,15 @@ export default function Home() {
         <div className="m-5 rounded-4xl px-8 py-18 bg-gray-900 space-y-6">
           <div className="text-center text-balance space-y-4">
             <h1
-              className="text-5xl md:text-7xl lg:text-8xl break-words hyphens-auto bg-gradient-to-r from-red-200 via-slate-100 to-blue-500 text-transparent bg-clip-text"
+              className="text-5xl md:text-7xl lg:text-8xl break-words hyphens-auto bg-gradient-to-br from-red-200 via-slate-100 to-blue-400 text-transparent bg-clip-text"
               lang="de"
             >
               Digital Brilliance for Visionary Enterprises
             </h1>
             <p className="text-lg">
-              PictorNG empowers ambitious brands with precision-engineered
-              software, expert-driven project execution, and a handpicked
-              network of top-tier talent, built to drive lasting impact in a
-              digital-first world.
+              Empowering ambitious brands with precision-engineered software,
+              expert-driven project execution, and a handpicked network of
+              top-tier talents.
             </p>
           </div>
           <div className="flex flex-wrap justify-center  gap-4 md:gap-8">
