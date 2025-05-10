@@ -16,7 +16,7 @@ export default function CalendlyBooking() {
 
   return (
     <div
-      className="calendly-inline-widget min-w-[320px] h-[850px]"
+      className="calendly-inline-widget min-w-[320px] h-[800px] md:h-[650px]"
       data-url="https://calendly.com/pictor-info?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=101828&text_color=62748e"
     ></div>
   );

@@ -39,10 +39,16 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap justify-center  gap-4 md:gap-8">
-            <Link href="mailto:info@pictor.com.ng">
+            <Link
+              href="mailto:info@pictor.com.ng"
+              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out"
+            >
               <Button>Contact Us</Button>
             </Link>
-            <Link href="https://calendly.com/pictor-info">
+            <Link
+              href="https://calendly.com/pictor-info"
+              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out"
+            >
               <Button>Book A Meeting</Button>
             </Link>
           </div>
