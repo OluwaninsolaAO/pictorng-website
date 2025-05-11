@@ -32,7 +32,6 @@ export default function RootLayout({
           href="/brand/favicon-96x96.png"
           sizes="96x96"
         />
-        <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
         <link rel="shortcut icon" href="/brand/favicon.ico" />
         <link
           rel="apple-touch-icon"

@@ -1,6 +1,7 @@
 import Button from '@/components/mods/button';
 import Link from 'next/link';
 import CalendlyBooking from './components/calendly';
+import { Facebook, Linkedin } from 'lucide-react';
 
 const services = [
   {
@@ -17,6 +18,19 @@ const services = [
     title: 'Tech Talent & Expert Network',
     description:
       'Access a curated network of top-tier professionals across diverse domains. We connect you with vetted talent and consultants to lead and deliver with excellence.',
+  },
+];
+
+const socials = [
+  {
+    label: 'Facebook',
+    url: 'https://www.facebook.com/pictorng',
+    icon: Facebook,
+  },
+  {
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/oluwaninsolaao/',
+    icon: Linkedin,
   },
 ];
 
@@ -41,13 +55,13 @@ export default function Home() {
           <div className="flex flex-wrap justify-center  gap-4 md:gap-8">
             <Link
               href="mailto:info@pictor.com.ng"
-              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out"
+              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out duration-500"
             >
               <Button>Contact Us</Button>
             </Link>
             <Link
               href="https://calendly.com/pictor-info"
-              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out"
+              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out duration-500"
             >
               <Button>Book A Meeting</Button>
             </Link>
@@ -65,7 +79,7 @@ export default function Home() {
           {services.map((service, index) => {
             return (
               <div
-                className="rounded-2xl p-8  space-y-2 border border-gray-800 bg-gradient-to-br from-gray-900 via-transparent to-gray-900 text-center content-center lg:hover:translate-y-2 transition-all ease-in-out"
+                className="rounded-2xl p-8  space-y-2 border border-gray-800 bg-gradient-to-br from-gray-900 via-transparent to-gray-900 text-center content-center lg:hover:translate-y-2 transition-all ease-in-out duration-500 hover:border-gray-900"
                 key={index}
               >
                 <h2 className="text-2xl">{service.title}</h2>
@@ -89,6 +103,25 @@ export default function Home() {
         </div>
         <CalendlyBooking />
       </div>
+
+      <div className="max-w-[1400px] mx-auto space-y-4 -mt-10">
+        <div className="flex gap-6 justify-center">
+          {socials.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <Link
+                key={index}
+                href={social.url}
+                className="bg-gradient-to-br from-gray-900 via-transparent to-gray-900 p-2 rounded-full group hover:translate-y-1 transition-all ease-in-out duration-500 border border-gray-800 hover:border-gray-900"
+                target="_blank"
+              >
+                <Icon className="text-gray-700 group-hover:text-gray-600 transition-all ease-in-out duration-500" />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+      <div></div>
     </div>
   );
 }
