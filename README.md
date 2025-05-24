@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PictorNG Website Repository
+
+This repository hosts the official website for **PictorNG**, a brand dedicated to empowering ambitious brands with precision-engineered software, expert-driven project execution, and a handpicked network of top-tier talents.
+
+---
+
+## About PictorNG
+
+At PictorNG, we believe in "Digital Brilliance for Visionary Enterprises." We offer comprehensive services to help businesses confidently innovate and achieve their goals.
+
+---
+
+## What We Engineer for the Bold
+
+### Custom Software Development
+
+We architect and build scalable, secure, and elegant software tailored to unique business needs. Our solutions empower clients to innovate with confidence and precision.
+
+### Bespoke Web App Design
+
+From seamless user experiences (UX) to cutting-edge interfaces, we craft visually stunning and high-performing websites and web applications. These digital products reflect brand identity and elevate user engagement.
+
+### Tech Talent & Expert Network
+
+We provide access to a curated network of top-tier professionals across diverse domains. We connect clients with vetted talent and consultants to lead and deliver projects with excellence.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+To explore our services or discuss a potential project, you can:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Contact Us**: Reach out directly through the website.
+* **Book A Meeting**: Select a convenient time to meet with our team and discuss your project in detail.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Copyright
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 PictorNG. All rights reserved.
