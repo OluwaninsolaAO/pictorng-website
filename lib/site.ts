@@ -1,6 +1,6 @@
 // Single source of truth for company facts. Anything left empty is hidden in the UI.
 export const site = {
-  name: 'Monolith',
+  name: 'Monolith Technologies Limited',
   legalName: 'Monolith Technologies Limited',
   domain: 'monolith.ng',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monolith.ng',

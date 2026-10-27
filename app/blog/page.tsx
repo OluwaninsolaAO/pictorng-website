@@ -5,7 +5,7 @@ import { formatDate, getPosts } from '@/lib/horbit';
 
 export const metadata: Metadata = {
   title: 'Journal',
-  description: 'Engineering notes and company news from Monolith.',
+  description: 'Engineering notes and company news from Monolith Technologies Limited.',
 };
 
 export const revalidate = 60;

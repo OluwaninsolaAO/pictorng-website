@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Monolith Technologies Limited',
-    short_name: 'Monolith',
+    short_name: 'Monolith Tech',
     description: 'Software, cloud and cybersecurity engineering.',
     start_url: '/',
     display: 'standalone',

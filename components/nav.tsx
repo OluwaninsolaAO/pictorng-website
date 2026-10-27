@@ -26,7 +26,7 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5 text-white sm:px-8">
-        <Link href="/" aria-label="Monolith home" onClick={() => setOpen(false)}>
+        <Link href="/" aria-label="Monolith Technologies Limited home" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
 

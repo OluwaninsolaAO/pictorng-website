@@ -99,7 +99,7 @@ export default async function Home() {
           <SectionHead
             eyebrow="Services"
             title="Everything between an idea and a system that runs."
-            lead="Monolith provides comprehensive information technology services, from software development to the infrastructure and security it runs on."
+            lead="Monolith Technologies Limited provides comprehensive information technology services, from software development to the infrastructure and security it runs on."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => {
@@ -137,7 +137,7 @@ export default async function Home() {
           <SectionHead
             eyebrow="Products"
             title="Software we build, ship and run ourselves."
-            lead="Our engineering practice is proven in production by products we operate under the Monolith umbrella."
+            lead="Our engineering practice is proven in production by products we operate under the Monolith Technologies Limited umbrella."
           />
           <div className="grid gap-5 md:grid-cols-2">
             {products.map((p) => {
@@ -245,7 +245,7 @@ export default async function Home() {
             Tell us about your project. We reply within one business day.
           </p>
           <div className="mt-9 flex justify-center">
-            <ButtonLink href="/contact">Contact Monolith</ButtonLink>
+            <ButtonLink href="/contact">Contact Monolith Technologies</ButtonLink>
           </div>
         </Container>
       </section>

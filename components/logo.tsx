@@ -1,6 +1,9 @@
 import { cn } from '@/lib/utils';
 
-/** Monolith mark: a solid slab with an "M" carved out of it. */
+/**
+ * Monolith mark: an "M" made of two folded planes of one slab, lit from the
+ * left. Gradient ids repeat across instances with identical defs, which is harmless.
+ */
 export function LogoMark({
   className,
   size = 28,
@@ -8,38 +11,42 @@ export function LogoMark({
   className?: string;
   size?: number;
 }) {
-  const id = 'monolith-mark-gradient'; // identical defs when repeated, so duplicate ids are harmless
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 32 32"
+      viewBox="2 2 28 28"
       fill="none"
       aria-hidden
       className={className}
     >
       <defs>
-        <linearGradient id={id} x1="4" y1="0" x2="28" y2="32">
-          <stop stopColor="#8B8DFF" />
-          <stop offset="1" stopColor="#4F46E5" />
+        <linearGradient id="mono-l" x1="4" y1="4" x2="16" y2="28" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#C4C6FF" />
+          <stop offset="1" stopColor="#7C7FFF" />
+        </linearGradient>
+        <linearGradient id="mono-r" x1="28" y1="4" x2="16" y2="28" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#6366F1" />
+          <stop offset="1" stopColor="#312E81" />
         </linearGradient>
       </defs>
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        fill={`url(#${id})`}
-        d="M8 0h16a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8Zm1.5 23V9h3.4l3.1 5.4L19.1 9h3.4v14h-3.2v-8.2l-2.1 3.7h-2.4l-2.1-3.7V23H9.5Z"
-      />
+      <path fill="url(#mono-l)" d="M4 4h6.2l5.3 9.6V25L10.3 16v12H4z" />
+      <path fill="url(#mono-r)" d="M28 4h-6.2l-5.3 9.6V25l5.2-9v12H28z" />
     </svg>
   );
 }
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <span className={cn('inline-flex items-center gap-2.5', className)}>
-      <LogoMark />
-      <span className="text-[17px] font-semibold tracking-[-0.04em] leading-none">
-        monolith
+    <span className={cn('inline-flex items-center gap-3', className)}>
+      <LogoMark size={26} />
+      <span className="flex flex-col gap-[3px]">
+        <span className="text-[18px] font-semibold leading-none tracking-[-0.04em]">
+          Monolith
+        </span>
+        <span className="text-[8.5px] font-medium uppercase leading-none tracking-[0.24em] opacity-60">
+          Technologies Limited
+        </span>
       </span>
     </span>
   );
