@@ -67,6 +67,10 @@ body {
   mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
 }
 
+.mesh-mask {
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 35%, transparent 80%);
+}
+
 .bg-glow {
   background:
     radial-gradient(40% 50% at 50% 0%, rgba(99, 102, 241, 0.35), transparent 70%),

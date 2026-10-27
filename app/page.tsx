@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   type LucideIcon,
 } from 'lucide-react';
+import HeroMesh from '@/components/hero-mesh';
 import { ButtonLink, Container, SectionHead } from '@/components/ui';
 import { formatDate, getPosts } from '@/lib/horbit';
 import { products, services } from '@/lib/site';
@@ -44,7 +45,7 @@ export default async function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44">
         <div className="bg-glow pointer-events-none absolute inset-0" />
-        <div className="bg-grid pointer-events-none absolute inset-0" />
+        <HeroMesh />
         <Container className="relative">
           <div className="mx-auto max-w-4xl text-center">
             <p className="rise mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-xs text-white/70">
