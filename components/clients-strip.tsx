@@ -9,13 +9,14 @@ function Mark({ c }: { c: Client }) {
       alt={c.name}
       width={c.logo.width}
       height={c.logo.height}
-      className="h-14 w-auto sm:h-16"
+      style={{ height: c.logo.display }}
+      className="w-auto"
     />
   ) : (
     <span className="text-xl font-semibold tracking-[-0.03em] sm:text-2xl">{c.name}</span>
   );
   const cls =
-    'flex h-14 items-center text-white/70 opacity-80 transition hover:text-white hover:opacity-100';
+    'flex h-[68px] items-center text-white/70 opacity-80 transition hover:text-white hover:opacity-100';
   return c.href ? (
     <a href={c.href} target="_blank" rel="noopener" className={cls} aria-label={c.name}>
       {inner}
