@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import ClientsStrip from '@/components/clients-strip';
 import MeshBackground from '@/components/mesh';
 import { ButtonLink, Container, PageHero, SectionHead } from '@/components/ui';
 import ProjectCard from '@/components/project-card';
@@ -85,6 +86,8 @@ export default function AboutPage() {
           ))}
         </Container>
       </section>
+
+      <ClientsStrip label="Our clients" />
 
       {/* Story */}
       <section className="theme-light bg-bg py-20 text-fg sm:py-28 relative isolate">

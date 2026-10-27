@@ -1,3 +1,4 @@
+import ClientsStrip from '@/components/clients-strip';
 import MeshBackground from '@/components/mesh';
 import Link from 'next/link';
 import {
@@ -95,6 +96,8 @@ export default async function Home() {
           </div>
         </Container>
       </section>
+
+      <ClientsStrip />
 
       {/* SERVICES */}
       <section className="theme-light bg-bg py-24 text-fg sm:py-32 relative isolate">
