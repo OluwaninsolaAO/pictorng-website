@@ -229,3 +229,33 @@ body {
   border-radius: 14px;
   overflow-x: auto;
 }
+
+/* ---------- Logo marquee (mobile clients strip) ---------- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 24s linear infinite;
+}
+.marquee-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
+  .marquee-dup {
+    display: none;
+  }
+  .marquee-mask {
+    mask-image: none;
+  }
+}
