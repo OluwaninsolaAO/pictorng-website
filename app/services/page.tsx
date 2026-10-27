@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import type { Metadata } from 'next';
 import { Check } from 'lucide-react';
 import { ButtonLink, Container, PageHero } from '@/components/ui';
@@ -18,7 +19,8 @@ export default function ServicesPage() {
         lead="Monolith Technologies Limited provides software development, systems integration and digital transformation consultancy, plus the design, deployment and management of IT infrastructure, cloud computing solutions and cybersecurity frameworks for corporate and individual clients."
       />
 
-      <section className="theme-light bg-bg py-20 text-fg sm:py-28">
+      <section className="theme-light bg-bg py-20 text-fg sm:py-28 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="divide-y divide-line">
           {services.map((s, i) => (
             <article
@@ -48,7 +50,8 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="py-24 text-center">
+      <section className="py-24 text-center relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="space-y-6">
           <h2 className="text-gradient text-3xl font-semibold tracking-[-0.04em] sm:text-5xl">
             Not sure where to start?

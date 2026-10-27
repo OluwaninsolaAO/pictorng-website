@@ -68,7 +68,7 @@ body {
 }
 
 .mesh-mask {
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 35%, transparent 80%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 30%, transparent 85%);
 }
 
 .bg-glow {
@@ -101,6 +101,20 @@ body {
     border-color 0.3s,
     transform 0.3s,
     box-shadow 0.3s;
+}
+/* Ripple field drives --rx/--ry/--rl on cards and [data-ripple] elements. */
+.card,
+[data-ripple] {
+  translate: var(--rx, 0) var(--ry, 0);
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--accent);
+  opacity: calc(var(--rl, 0) * 0.55);
+  pointer-events: none;
 }
 .card:hover {
   border-color: color-mix(in srgb, var(--accent) 45%, var(--line));

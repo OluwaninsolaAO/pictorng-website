@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/nav';
 import Footer from '@/components/footer';
+import RippleField from '@/components/ripple-field';
 import { site } from '@/lib/site';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
@@ -57,6 +58,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <RippleField />
         <Nav />
         <main>{children}</main>
         <Footer />

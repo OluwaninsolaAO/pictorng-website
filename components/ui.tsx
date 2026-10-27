@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import MeshBackground from '@/components/mesh';
 import { ArrowRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
@@ -89,9 +90,9 @@ export function PageHero({
   lead?: ReactNode;
 }) {
   return (
-    <header className="relative overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-24">
+    <header className="relative isolate overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-24">
       <div className="bg-glow pointer-events-none absolute inset-0" />
-      <div className="bg-grid pointer-events-none absolute inset-0" />
+      <MeshBackground strength={0.5} />
       <Container className="relative">
         <div className="max-w-3xl space-y-5">
           <Eyebrow>{eyebrow}</Eyebrow>

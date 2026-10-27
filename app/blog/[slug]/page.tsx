@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -27,7 +28,8 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <article className="theme-light min-h-screen bg-bg pt-32 pb-24 text-fg">
+    <article className="theme-light min-h-screen bg-bg pt-32 pb-24 text-fg relative isolate">
+      <MeshBackground strength={0.18} />
       <Container className="max-w-[760px]">
         <Link href="/blog" className="text-sm text-muted hover:text-accent">
           &larr; Journal

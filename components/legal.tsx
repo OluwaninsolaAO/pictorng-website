@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import { Container, PageHero } from '@/components/ui';
 
 export function LegalPage({
@@ -12,7 +13,8 @@ export function LegalPage({
   return (
     <>
       <PageHero eyebrow="Legal" title={title} lead={`Last updated ${updated}`} />
-      <section className="theme-light bg-bg py-16 text-fg sm:py-24">
+      <section className="theme-light bg-bg py-16 text-fg sm:py-24 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="max-w-[760px] space-y-10">
           {sections.map((s) => (
             <div key={s.h} className="space-y-3">

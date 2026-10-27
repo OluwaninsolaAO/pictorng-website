@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import type { Metadata } from 'next';
 import { ButtonLink, Container, PageHero, SectionHead } from '@/components/ui';
 import { site } from '@/lib/site';
@@ -24,7 +25,8 @@ export default function AboutPage() {
         lead="Monolith Technologies Limited is an information technology services company. We carry on business as a provider of software development, systems integration and digital transformation consultancy, and we design, deploy and manage IT infrastructure, cloud and cybersecurity frameworks for corporate and individual clients."
       />
 
-      <section className="theme-light bg-bg py-20 text-fg sm:py-28">
+      <section className="theme-light bg-bg py-20 text-fg sm:py-28 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="grid gap-16 md:grid-cols-2">
           <div className="space-y-5">
             <SectionHead eyebrow="Our name" title="Why Monolith?" />
@@ -52,7 +54,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-24 text-center">
+      <section className="py-24 text-center relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="space-y-6">
           <h2 className="text-gradient text-3xl font-semibold tracking-[-0.04em] sm:text-5xl">
             Work with us.

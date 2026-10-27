@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Container, PageHero } from '@/components/ui';
@@ -20,7 +21,8 @@ export default async function BlogPage() {
         title="Notes from the engineering desk."
         lead="Writing on software, cloud, security and how we build."
       />
-      <section className="theme-light bg-bg py-16 text-fg sm:py-24">
+      <section className="theme-light bg-bg py-16 text-fg sm:py-24 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container>
           {posts.length === 0 ? (
             <p className="rounded-2xl border border-dashed border-line p-12 text-center text-muted">

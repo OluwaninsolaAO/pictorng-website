@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import type { Metadata } from 'next';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import ContactForm from '@/components/contact-form';
@@ -23,7 +24,8 @@ export default function ContactPage() {
         title="Tell us what you want to build."
         lead="Send a message and an engineer will reply within one business day."
       />
-      <section className="theme-light bg-bg py-16 text-fg sm:py-24">
+      <section className="theme-light bg-bg py-16 text-fg sm:py-24 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
           <ContactForm />
           <aside className="space-y-8 lg:pt-4">

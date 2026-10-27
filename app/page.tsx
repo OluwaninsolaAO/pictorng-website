@@ -1,3 +1,4 @@
+import MeshBackground from '@/components/mesh';
 import Link from 'next/link';
 import {
   ArrowUpRight,
@@ -9,7 +10,6 @@ import {
   ShieldCheck,
   type LucideIcon,
 } from 'lucide-react';
-import HeroMesh from '@/components/hero-mesh';
 import { ButtonLink, Container, SectionHead } from '@/components/ui';
 import { formatDate, getPosts } from '@/lib/horbit';
 import { products, services } from '@/lib/site';
@@ -43,12 +43,12 @@ export default async function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44">
+      <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44 isolate">
+        <MeshBackground strength={0.6} />
         <div className="bg-glow pointer-events-none absolute inset-0" />
-        <HeroMesh />
         <Container className="relative">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="rise mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-xs text-white/70">
+            <p data-ripple className="rise mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-xs text-white/70">
               <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_2px_rgba(52,211,153,0.6)]" />
               Monolith Technologies Limited &middot; IT services
             </p>
@@ -69,7 +69,7 @@ export default async function Home() {
           </div>
 
           {/* Pipeline visual */}
-          <div className="rise rise-4 drift relative mx-auto mt-20 max-w-3xl">
+          <div data-ripple className="rise rise-4 drift relative mx-auto mt-20 max-w-3xl">
             <div className="absolute -inset-x-6 -inset-y-4 rounded-[28px] bg-gradient-to-b from-indigo-500/25 to-transparent blur-2xl" />
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b12]/90 shadow-2xl backdrop-blur">
               <div className="flex items-center gap-1.5 border-b border-white/[0.07] px-4 py-3">
@@ -95,7 +95,8 @@ export default async function Home() {
       </section>
 
       {/* SERVICES */}
-      <section className="theme-light bg-bg py-24 text-fg sm:py-32">
+      <section className="theme-light bg-bg py-24 text-fg sm:py-32 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="space-y-14">
           <SectionHead
             eyebrow="Services"
@@ -132,7 +133,8 @@ export default async function Home() {
       </section>
 
       {/* PRODUCTS */}
-      <section id="products" className="relative scroll-mt-16 overflow-hidden py-24 sm:py-32">
+      <section id="products" className="relative scroll-mt-16 overflow-hidden py-24 sm:py-32 isolate">
+        <MeshBackground strength={0.18} />
         <div className="bg-glow pointer-events-none absolute inset-0 opacity-40" />
         <Container className="relative space-y-14">
           <SectionHead
@@ -175,7 +177,8 @@ export default async function Home() {
       </section>
 
       {/* APPROACH */}
-      <section className="theme-light bg-bg py-24 text-fg sm:py-32">
+      <section className="theme-light bg-bg py-24 text-fg sm:py-32 relative isolate">
+        <MeshBackground strength={0.18} />
         <Container className="space-y-20">
           <SectionHead
             eyebrow="How we work"
@@ -206,7 +209,8 @@ export default async function Home() {
 
       {/* BLOG (renders only when Horbit returns posts) */}
       {posts.length > 0 && (
-        <section className="py-24 sm:py-32">
+        <section className="py-24 sm:py-32 relative isolate">
+          <MeshBackground strength={0.18} />
           <Container className="space-y-12">
             <div className="flex items-end justify-between gap-6">
               <SectionHead eyebrow="Journal" title="Notes from the engineering desk." />
@@ -236,7 +240,8 @@ export default async function Home() {
       )}
 
       {/* CTA */}
-      <section className="relative overflow-hidden py-28 sm:py-36">
+      <section className="relative overflow-hidden py-28 sm:py-36 isolate">
+        <MeshBackground strength={0.18} />
         <div className="bg-glow pointer-events-none absolute inset-0" />
         <Container className="relative text-center">
           <h2 className="text-gradient mx-auto max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-balance sm:text-6xl">
