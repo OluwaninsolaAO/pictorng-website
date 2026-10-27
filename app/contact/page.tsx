@@ -25,7 +25,7 @@ export default function ContactPage() {
         lead="Send a message and an engineer will reply within one business day."
       />
       <section className="theme-light bg-bg py-16 text-fg sm:py-24 relative isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <Container className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
           <ContactForm />
           <aside className="space-y-8 lg:pt-4">
@@ -34,7 +34,7 @@ export default function ContactPage() {
                 {site.legalName}
               </h2>
               <p className="mt-2 text-muted">
-                Information technology services, registered in Nigeria.
+                Information technology services, registered in Nigeria ({site.rcNumber}).
               </p>
             </div>
             <ul className="space-y-5">

@@ -14,7 +14,7 @@ export function LegalPage({
     <>
       <PageHero eyebrow="Legal" title={title} lead={`Last updated ${updated}`} />
       <section className="theme-light bg-bg py-16 text-fg sm:py-24 relative isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <Container className="max-w-[760px] space-y-10">
           {sections.map((s) => (
             <div key={s.h} className="space-y-3">

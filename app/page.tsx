@@ -44,7 +44,7 @@ export default async function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44 isolate">
-        <MeshBackground strength={0.6} />
+        <MeshBackground opacity={0.55} />
         <div className="bg-glow pointer-events-none absolute inset-0" />
         <Container className="relative">
           <div className="mx-auto max-w-4xl text-center">
@@ -96,7 +96,7 @@ export default async function Home() {
 
       {/* SERVICES */}
       <section className="theme-light bg-bg py-24 text-fg sm:py-32 relative isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <Container className="space-y-14">
           <SectionHead
             eyebrow="Services"
@@ -134,7 +134,7 @@ export default async function Home() {
 
       {/* PRODUCTS */}
       <section id="products" className="relative scroll-mt-16 overflow-hidden py-24 sm:py-32 isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <div className="bg-glow pointer-events-none absolute inset-0 opacity-40" />
         <Container className="relative space-y-14">
           <SectionHead
@@ -178,7 +178,7 @@ export default async function Home() {
 
       {/* APPROACH */}
       <section className="theme-light bg-bg py-24 text-fg sm:py-32 relative isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <Container className="space-y-20">
           <SectionHead
             eyebrow="How we work"
@@ -210,7 +210,7 @@ export default async function Home() {
       {/* BLOG (renders only when Horbit returns posts) */}
       {posts.length > 0 && (
         <section className="py-24 sm:py-32 relative isolate">
-          <MeshBackground strength={0.18} />
+          <MeshBackground opacity={0.4} />
           <Container className="space-y-12">
             <div className="flex items-end justify-between gap-6">
               <SectionHead eyebrow="Journal" title="Notes from the engineering desk." />
@@ -241,7 +241,7 @@ export default async function Home() {
 
       {/* CTA */}
       <section className="relative overflow-hidden py-28 sm:py-36 isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <div className="bg-glow pointer-events-none absolute inset-0" />
         <Container className="relative text-center">
           <h2 className="text-gradient mx-auto max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-balance sm:text-6xl">

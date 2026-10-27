@@ -29,7 +29,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article className="theme-light min-h-screen bg-bg pt-32 pb-24 text-fg relative isolate">
-      <MeshBackground strength={0.18} />
+      <MeshBackground opacity={0.4} />
       <Container className="max-w-[760px]">
         <Link href="/blog" className="text-sm text-muted hover:text-accent">
           &larr; Journal

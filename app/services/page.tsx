@@ -20,7 +20,7 @@ export default function ServicesPage() {
       />
 
       <section className="theme-light bg-bg py-20 text-fg sm:py-28 relative isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <Container className="divide-y divide-line">
           {services.map((s, i) => (
             <article
@@ -51,7 +51,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-24 text-center relative isolate">
-        <MeshBackground strength={0.18} />
+        <MeshBackground opacity={0.4} />
         <Container className="space-y-6">
           <h2 className="text-gradient text-3xl font-semibold tracking-[-0.04em] sm:text-5xl">
             Not sure where to start?

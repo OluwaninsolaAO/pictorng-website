@@ -92,7 +92,7 @@ export function PageHero({
   return (
     <header className="relative isolate overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-24">
       <div className="bg-glow pointer-events-none absolute inset-0" />
-      <MeshBackground strength={0.5} />
+      <MeshBackground opacity={0.5} />
       <Container className="relative">
         <div className="max-w-3xl space-y-5">
           <Eyebrow>{eyebrow}</Eyebrow>

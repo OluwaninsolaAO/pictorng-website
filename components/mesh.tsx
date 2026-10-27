@@ -17,9 +17,10 @@ function hexToRgb(v: string, fallback: [number, number, number]) {
 
 /**
  * Grid background for a section (parent must be `relative isolate`).
- * `strength` scales how visible the ripple is: ~0.6 for heroes, ~0.18 elsewhere.
+ * `opacity` scales how visible the mesh is (grid and ripple glow); the ripple
+ * motion itself is the same everywhere. About 0.55 for heroes, 0.4 elsewhere.
  */
-export default function MeshBackground({ strength = 0.2 }: { strength?: number }) {
+export default function MeshBackground({ opacity = 0.4 }: { opacity?: number }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function MeshBackground({ strength = 0.2 }: { strength?: number }
     const [fr, fg, fb] = hexToRgb(cs.getPropertyValue('--fg'), [255, 255, 255]);
     const [ar, ag, ab] = hexToRgb(cs.getPropertyValue('--accent-soft'), [139, 141, 255]);
     const light = fr + fg + fb < 200; // dark ink means a light section
-    const baseAlpha = light ? 0.055 : 0.045;
+    const baseAlpha = light ? 0.08 : 0.06;
 
     let w = 0;
     let h = 0;
@@ -55,11 +56,11 @@ export default function MeshBackground({ strength = 0.2 }: { strength?: number }
           const lx = horizontal ? p : c;
           const ly = horizontal ? c : p;
           const s = sample(lx + ox, ly + oy, now);
-          const pt = { x: lx + s.dx * strength * (AMP / 10), y: ly + s.dy * strength * (AMP / 10), lit: s.lit };
+          const pt = { x: lx + s.dx * (AMP / 10), y: ly + s.dy * (AMP / 10), lit: s.lit };
           if (!prev) base.moveTo(pt.x, pt.y);
           else {
             base.lineTo(pt.x, pt.y);
-            const a = ((pt.lit + prev.lit) / 2) * strength;
+            const a = (pt.lit + prev.lit) / 2;
             if (a > 0.03) hot.push({ x0: prev.x, y0: prev.y, x1: pt.x, y1: pt.y, a });
           }
           prev = pt;
@@ -69,10 +70,10 @@ export default function MeshBackground({ strength = 0.2 }: { strength?: number }
       for (let y = 0; y <= h; y += GAP) trace(true, y);
 
       ctx.lineWidth = 1;
-      ctx.strokeStyle = `rgba(${fr},${fg},${fb},${baseAlpha})`;
+      ctx.strokeStyle = `rgba(${fr},${fg},${fb},${(baseAlpha * opacity).toFixed(4)})`;
       ctx.stroke(base);
       for (const s of hot) {
-        ctx.strokeStyle = `rgba(${ar},${ag},${ab},${Math.min(s.a, 0.7).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(${ar},${ag},${ab},${(Math.min(0.7 * s.a, 0.7) * opacity).toFixed(3)})`;
         ctx.beginPath();
         ctx.moveTo(s.x0, s.y0);
         ctx.lineTo(s.x1, s.y1);
@@ -104,7 +105,7 @@ export default function MeshBackground({ strength = 0.2 }: { strength?: number }
       io.disconnect();
       unsub();
     };
-  }, [strength]);
+  }, [opacity]);
 
   return (
     <div className="mesh-mask pointer-events-none absolute inset-0 -z-10" aria-hidden>

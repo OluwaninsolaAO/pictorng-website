@@ -42,6 +42,7 @@ const jsonLd = {
   alternateName: 'Monolith Technologies',
   url: site.url,
   email: site.email,
+  identifier: site.rcNumber,
   description: site.description,
   logo: `${site.url}/icon.svg`,
 };

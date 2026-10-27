@@ -7,7 +7,7 @@ export const site = {
   email: 'info@monolith.ng',
   phone: '', // e.g. '+234 800 000 0000'
   address: '', // registered office, e.g. '12 Example Street, Lagos, Nigeria'
-  rcNumber: '', // CAC registration number, e.g. 'RC 1234567'
+  rcNumber: 'RC 9200427', // CAC registration number
   tagline: 'Software, cloud and security engineering.',
   description:
     'Monolith Technologies Limited is an IT services company providing software development, systems integration, digital transformation consultancy, IT infrastructure, cloud computing and cybersecurity for corporate and individual clients.',
