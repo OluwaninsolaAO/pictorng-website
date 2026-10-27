@@ -6,7 +6,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monolith.ng',
   email: 'info@monolith.ng',
   phone: '+234 810 020 1192',
-  address: '', // registered office, e.g. '12 Example Street, Lagos, Nigeria'
+  address: 'No. 18, Road A, Challenge Area, Ogbomoso, Oyo State, Nigeria',
   rcNumber: 'RC 9200427', // CAC registration number
   tagline: 'Software, cloud and security engineering.',
   description:
