@@ -1,127 +1,271 @@
-import Button from '@/components/mods/button';
 import Link from 'next/link';
-import CalendlyBooking from './components/calendly';
-import { Facebook, Linkedin } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Blocks,
+  Cloud,
+  Compass,
+  Network,
+  Server,
+  ShieldCheck,
+  type LucideIcon,
+} from 'lucide-react';
+import { ButtonLink, Container, SectionHead } from '@/components/ui';
+import { formatDate, getPosts } from '@/lib/horbit';
+import { products, services } from '@/lib/site';
 
-const services = [
-  {
-    title: 'Custom Software Development',
-    description:
-      'We architect and build scalable, secure, and elegant software tailored to your business needs—empowering you to innovate with confidence and precision.',
-  },
-  {
-    title: 'Bespoke Web App Design',
-    description:
-      'From seamless UX to cutting-edge interfaces, we craft visually stunning and high-performing websites and web applications that reflect your brand’s identity and elevate user engagement.',
-  },
-  {
-    title: 'Tech Talent & Expert Network',
-    description:
-      'Access a curated network of top-tier professionals across diverse domains. We connect you with vetted talent and consultants to lead and deliver with excellence.',
-  },
+const icons: Record<string, LucideIcon> = {
+  'software-development': Blocks,
+  'systems-integration': Network,
+  'digital-transformation': Compass,
+  'it-infrastructure': Server,
+  'cloud-computing': Cloud,
+  cybersecurity: ShieldCheck,
+};
+
+const steps = [
+  ['01', 'Discover', 'We map your goals, users and constraints before writing a line of code.'],
+  ['02', 'Design', 'Architecture and interface designed together, reviewed with you early.'],
+  ['03', 'Build', 'Small, tested releases shipped continuously so you see progress weekly.'],
+  ['04', 'Operate', 'We deploy, monitor and support what we build, with security in every step.'],
 ];
 
-const socials = [
-  {
-    label: 'Facebook',
-    url: 'https://www.facebook.com/pictorng',
-    icon: Facebook,
-  },
-  {
-    label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/oluwaninsolaao/',
-    icon: Linkedin,
-  },
+const principles = [
+  ['Engineering-led', 'Senior engineers on every project. No hand-offs to a sales layer.'],
+  ['Secure by default', 'Access control, secrets handling and data protection are designed in, not bolted on.'],
+  ['Built to run', 'We care about uptime, observability and cost long after launch day.'],
+  ['Plain communication', 'Fixed scope, clear milestones, honest timelines.'],
 ];
 
-export default function Home() {
+export default async function Home() {
+  const posts = (await getPosts(3)).slice(0, 3);
+
   return (
-    <div className="min-h-dvh space-y-18">
-      <div className="max-w-[1400px] mx-auto p-5">
-        <div className="rounded-2xl px-8 py-18 bg-gradient-to-br from-gray-900 via-transparent to-gray-900 border border-gray-800 space-y-6">
-          <div className="text-center text-balance space-y-4">
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl break-words hyphens-auto bg-gradient-to-br from-red-200 via-slate-100 to-blue-400 text-transparent bg-clip-text"
-              lang="de"
-            >
-              Digital Brilliance for Visionary Enterprises
-            </h1>
-            <p className="text-lg">
-              Empowering ambitious brands with precision-engineered software,
-              expert-driven project execution, and a handpicked network of
-              top-tier talents.
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden pt-36 pb-24 sm:pt-44">
+        <div className="bg-glow pointer-events-none absolute inset-0" />
+        <div className="bg-grid pointer-events-none absolute inset-0" />
+        <Container className="relative">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="rise mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-xs text-white/70">
+              <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_2px_rgba(52,211,153,0.6)]" />
+              Monolith Technologies Limited &middot; IT services
             </p>
+            <h1 className="rise rise-2 text-gradient text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-balance sm:text-7xl lg:text-[88px]">
+              Software built to stand the test of time.
+            </h1>
+            <p className="rise rise-3 mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/60 sm:text-xl">
+              We design, build and run software, cloud infrastructure and
+              security for businesses and individuals. From first prototype to
+              production at scale.
+            </p>
+            <div className="rise rise-4 mt-10 flex flex-wrap justify-center gap-3">
+              <ButtonLink href="/contact">Start a project</ButtonLink>
+              <ButtonLink href="/services" variant="ghost">
+                What we do
+              </ButtonLink>
+            </div>
           </div>
-          <div className="flex flex-wrap justify-center  gap-4 md:gap-8">
-            <Link
-              href="mailto:info@pictor.com.ng"
-              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out duration-500"
-            >
-              <Button>Contact Us</Button>
-            </Link>
-            <Link
-              href="https://calendly.com/pictor-info"
-              className="p-1 border border-gray-700 rounded-lg inline-block hover:translate-y-1 transition-all ease-in-out duration-500"
-            >
-              <Button>Book A Meeting</Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="max-w-[1400px] mx-auto p-5 space-y-8">
-        <h2 className="text-4xl md:text-5xl break-words hyphens-auto text-center text-balance">
-          What We Engineer for the Bold
-        </h2>
-        <div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 break-words hyphens-auto"
-          lang="de"
-        >
-          {services.map((service, index) => {
-            return (
-              <div
-                className="rounded-2xl p-8  space-y-2 border border-gray-800 bg-gradient-to-br from-gray-900 via-transparent to-gray-900 text-center content-center lg:hover:translate-y-2 transition-all ease-in-out duration-500 hover:border-gray-900"
-                key={index}
-              >
-                <h2 className="text-2xl">{service.title}</h2>
-                <p className="text-sm">{service.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <hr className="max-w-[700px] mx-auto border-0 h-[2px] bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
-      <div className="max-w-[1400px] mx-auto p-5 space-y-4">
-        <div className="text-center text-balance space-y-4">
-          <h2 className="text-4xl md:text-5xl break-words hyphens-auto">
-            Let’s Create What’s Next
-          </h2>
-          <p className="max-w-[1100px] m-auto">
-            Select a time that works for you and meet with our team to discuss
-            how we can bring precision, creativity, and tech brilliance to your
-            next project.
-          </p>
-        </div>
-        <CalendlyBooking />
-      </div>
 
-      <div className="max-w-[1400px] mx-auto space-y-4 -mt-10">
-        <div className="flex gap-6 justify-center">
-          {socials.map((social, index) => {
-            const Icon = social.icon;
-            return (
-              <Link
-                key={index}
-                href={social.url}
-                className="bg-gradient-to-br from-gray-900 via-transparent to-gray-900 p-2 rounded-full group hover:translate-y-1 transition-all ease-in-out duration-500 border border-gray-800 hover:border-gray-900"
-                target="_blank"
-              >
-                <Icon className="text-gray-700 group-hover:text-gray-600 transition-all ease-in-out duration-500" />
+          {/* Pipeline visual */}
+          <div className="rise rise-4 drift relative mx-auto mt-20 max-w-3xl">
+            <div className="absolute -inset-x-6 -inset-y-4 rounded-[28px] bg-gradient-to-b from-indigo-500/25 to-transparent blur-2xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b12]/90 shadow-2xl backdrop-blur">
+              <div className="flex items-center gap-1.5 border-b border-white/[0.07] px-4 py-3">
+                <span className="size-2.5 rounded-full bg-white/15" />
+                <span className="size-2.5 rounded-full bg-white/15" />
+                <span className="size-2.5 rounded-full bg-white/15" />
+                <span className="ml-3 font-mono text-xs text-white/35">
+                  release / production
+                </span>
+              </div>
+              <div className="space-y-2.5 p-5 font-mono text-[13px] leading-6 text-white/55 sm:p-7 sm:text-sm">
+                <Line c="text-white/80">$ monolith ship --env production</Line>
+                <Line ok>Build compiled and type-checked</Line>
+                <Line ok>Automated test suite passed</Line>
+                <Line ok>Dependency and secrets scan clean</Line>
+                <Line ok>Infrastructure provisioned in cloud region</Line>
+                <Line ok>Zero-downtime rollout complete</Line>
+                <Line c="text-indigo-300">Live &middot; monitored &middot; backed up</Line>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* SERVICES */}
+      <section className="theme-light bg-bg py-24 text-fg sm:py-32">
+        <Container className="space-y-14">
+          <SectionHead
+            eyebrow="Services"
+            title="Everything between an idea and a system that runs."
+            lead="Monolith provides comprehensive information technology services, from software development to the infrastructure and security it runs on."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => {
+              const Icon = icons[s.slug];
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/services#${s.slug}`}
+                  className="card group space-y-4 p-7"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="grid size-11 place-items-center rounded-xl bg-accent/10 text-accent">
+                      <Icon size={22} strokeWidth={1.75} />
+                    </span>
+                    <ArrowUpRight
+                      size={18}
+                      className="text-muted opacity-0 transition group-hover:opacity-100"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold tracking-[-0.025em]">
+                    {s.title}
+                  </h3>
+                  <p className="leading-relaxed text-muted">{s.summary}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* PRODUCTS */}
+      <section id="products" className="relative scroll-mt-16 overflow-hidden py-24 sm:py-32">
+        <div className="bg-glow pointer-events-none absolute inset-0 opacity-40" />
+        <Container className="relative space-y-14">
+          <SectionHead
+            eyebrow="Products"
+            title="Software we build, ship and run ourselves."
+            lead="Our engineering practice is proven in production by products we operate under the Monolith umbrella."
+          />
+          <div className="grid gap-5 md:grid-cols-2">
+            {products.map((p) => {
+              const inner = (
+                <>
+                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
+                    {p.tag}
+                  </span>
+                  <h3 className="mt-3 flex items-center gap-2 text-3xl font-semibold tracking-[-0.035em]">
+                    {p.name}
+                    {p.href && <ArrowUpRight size={22} className="text-white/40" />}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-muted">{p.blurb}</p>
+                </>
+              );
+              return p.href ? (
+                <a
+                  key={p.name}
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="card block p-8"
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={p.name} className="card p-8">
+                  {inner}
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* APPROACH */}
+      <section className="theme-light bg-bg py-24 text-fg sm:py-32">
+        <Container className="space-y-20">
+          <SectionHead
+            eyebrow="How we work"
+            title="A simple process. Rigorous at every step."
+          />
+          <div className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map(([n, t, d]) => (
+              <div key={n} className="space-y-3 bg-raised p-8">
+                <span className="font-mono text-sm text-accent">{n}</span>
+                <h3 className="text-xl font-semibold tracking-[-0.025em]">{t}</h3>
+                <p className="text-sm leading-relaxed text-muted">{d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid gap-x-12 gap-y-8 sm:grid-cols-2">
+            {principles.map(([t, d]) => (
+              <div key={t} className="flex gap-4">
+                <span className="mt-2 size-2 shrink-0 rounded-full bg-accent" />
+                <div>
+                  <h3 className="font-semibold tracking-[-0.02em]">{t}</h3>
+                  <p className="mt-1 text-muted">{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* BLOG (renders only when Horbit returns posts) */}
+      {posts.length > 0 && (
+        <section className="py-24 sm:py-32">
+          <Container className="space-y-12">
+            <div className="flex items-end justify-between gap-6">
+              <SectionHead eyebrow="Journal" title="Notes from the engineering desk." />
+              <Link href="/blog" className="hidden text-sm text-accent-soft sm:block">
+                All posts &rarr;
               </Link>
-            );
-          })}
-        </div>
-      </div>
-      <div></div>
-    </div>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {posts.map((p) => (
+                <Link key={p.id} href={`/blog/${p.slug}`} className="card space-y-3 p-7">
+                  <p className="font-mono text-xs text-muted">
+                    {formatDate(p.publishedAt)}
+                  </p>
+                  <h3 className="text-xl font-semibold tracking-[-0.025em] text-balance">
+                    {p.title}
+                  </h3>
+                  {p.excerpt && (
+                    <p className="line-clamp-3 text-sm leading-relaxed text-muted">
+                      {p.excerpt}
+                    </p>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section className="relative overflow-hidden py-28 sm:py-36">
+        <div className="bg-glow pointer-events-none absolute inset-0" />
+        <Container className="relative text-center">
+          <h2 className="text-gradient mx-auto max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-balance sm:text-6xl">
+            Have something to build? Let&rsquo;s talk.
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/55">
+            Tell us about your project. We reply within one business day.
+          </p>
+          <div className="mt-9 flex justify-center">
+            <ButtonLink href="/contact">Contact Monolith</ButtonLink>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
+
+function Line({
+  children,
+  ok,
+  c,
+}: {
+  children: React.ReactNode;
+  ok?: boolean;
+  c?: string;
+}) {
+  return (
+    <p className={`flex gap-3 ${c ?? ''}`}>
+      {ok && <span className="text-emerald-400">&#10003;</span>}
+      <span>{children}</span>
+    </p>
   );
 }
