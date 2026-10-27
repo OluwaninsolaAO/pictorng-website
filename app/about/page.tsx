@@ -3,7 +3,9 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import MeshBackground from '@/components/mesh';
 import { ButtonLink, Container, PageHero, SectionHead } from '@/components/ui';
-import { products, services, site } from '@/lib/site';
+import ProjectCard from '@/components/project-card';
+import { projects } from '@/lib/projects';
+import { services, site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -15,7 +17,6 @@ const facts = [
   ['Legal name', site.legalName],
   ['Registration no.', `${site.rcNumber}, Corporate Affairs Commission, Nigeria`],
   ['Principal activity', 'Information technology services'],
-  ['Website', site.domain],
   ['Email', site.email],
   ...(site.phone ? [['Phone', site.phone]] : []),
   ...(site.address ? [['Registered office', site.address]] : []),
@@ -57,7 +58,7 @@ const audiences = [
 
 const strip = [
   ['6', 'Core service lines'],
-  ['2', 'Products we operate'],
+  [String(projects.length), 'Projects we operate'],
   ['Nigeria', 'Registered and based'],
   [site.rcNumber, 'CAC registration'],
 ];
@@ -105,7 +106,7 @@ export default function AboutPage() {
               frameworks.
             </p>
             <p className="text-lg leading-relaxed text-muted">
-              We also build and operate our own products. Running real software
+              We also build and operate our own platforms and developer tools. Running real software
               for real users keeps our consulting honest: we only recommend what
               we are willing to run ourselves.
             </p>
@@ -176,44 +177,18 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Products */}
+      {/* Projects */}
       <section className="relative isolate py-20 sm:py-28">
         <MeshBackground opacity={0.4} />
         <Container className="space-y-12">
           <SectionHead
-            eyebrow="Products"
-            title="Software we build and operate ourselves."
+            eyebrow="Projects"
+            title="Software and developer tools we operate ourselves."
           />
-          <div className="grid gap-5 md:grid-cols-2">
-            {products.map((p) => {
-              const inner = (
-                <>
-                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-                    {p.tag}
-                  </span>
-                  <h3 className="mt-3 flex items-center gap-2 text-2xl font-semibold tracking-[-0.03em]">
-                    {p.name}
-                    {p.href && <ArrowUpRight size={20} className="text-white/40" />}
-                  </h3>
-                  <p className="mt-3 leading-relaxed text-muted">{p.blurb}</p>
-                </>
-              );
-              return p.href ? (
-                <a
-                  key={p.name}
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener"
-                  className="card block p-8"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div key={p.name} className="card p-8">
-                  {inner}
-                </div>
-              );
-            })}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((p) => (
+              <ProjectCard key={p.slug} project={p} />
+            ))}
           </div>
         </Container>
       </section>

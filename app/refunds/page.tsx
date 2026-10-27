@@ -43,7 +43,7 @@ export default function Refunds() {
         {
           h: '6. Third-party products',
           body: [
-            'Products operated on separate platforms, such as event tickets or memberships sold by organisers through Horbit, are governed by the organiser’s own refund rules shown at checkout.',
+            'Items sold on separate platforms, such as event tickets or memberships sold by organisers through Horbit, are governed by the organiser’s own refund rules shown at checkout.',
           ],
         },
       ]}

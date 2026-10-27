@@ -5,12 +5,12 @@ export const site = {
   domain: 'monolith.ng',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monolith.ng',
   email: 'info@monolith.ng',
-  phone: '', // e.g. '+234 800 000 0000'
+  phone: '+234 810 020 1192',
   address: '', // registered office, e.g. '12 Example Street, Lagos, Nigeria'
   rcNumber: 'RC 9200427', // CAC registration number
   tagline: 'Software, cloud and security engineering.',
   description:
-    'Monolith Technologies Limited is an IT services company providing software development, systems integration, digital transformation consultancy, IT infrastructure, cloud computing and cybersecurity for corporate and individual clients.',
+    'Monolith Technologies Limited is an IT services company providing software development, systems integration, digital transformation consultancy, IT infrastructure, cloud computing and cybersecurity for corporate and individual clients. Monolith also builds and operates its own platforms and developer tools.',
   socials: [] as { label: string; href: string }[],
 };
 
@@ -89,26 +89,9 @@ export const services = [
   },
 ] as const;
 
-export const products = [
-  {
-    name: 'Horbit',
-    href: 'https://horbit.ng',
-    blurb:
-      'A community platform for members, events, communication and blogging, with a public API and developer docs.',
-    tag: 'Community platform',
-  },
-  {
-    name: 'Smart Utility Platform',
-    href: '',
-    blurb:
-      'Metering and utility-vending software that connects estate and commercial users to gas, electricity and water services through web and mobile apps and IoT hardware.',
-    tag: 'IoT and utility software',
-  },
-];
-
 export const nav = [
   { label: 'Services', href: '/services' },
-  { label: 'Products', href: '/#products' },
+  { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },

@@ -12,7 +12,9 @@ import {
 } from 'lucide-react';
 import { ButtonLink, Container, SectionHead } from '@/components/ui';
 import { formatDate, getPosts } from '@/lib/horbit';
-import { products, services } from '@/lib/site';
+import ProjectCard from '@/components/project-card';
+import { projects } from '@/lib/projects';
+import { services } from '@/lib/site';
 
 const icons: Record<string, LucideIcon> = {
   'software-development': Blocks,
@@ -56,8 +58,8 @@ export default async function Home() {
               Software built to stand the test of time.
             </h1>
             <p className="rise rise-3 mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/60 sm:text-xl">
-              We design, build and run software, cloud infrastructure and
-              security for businesses and individuals. From first prototype to
+              We design, build and run software, developer tools, cloud
+              infrastructure and security for businesses and individuals. From first prototype to
               production at scale.
             </p>
             <div className="rise rise-4 mt-10 flex flex-wrap justify-center gap-3">
@@ -132,46 +134,28 @@ export default async function Home() {
         </Container>
       </section>
 
-      {/* PRODUCTS */}
-      <section id="products" className="relative scroll-mt-16 overflow-hidden py-24 sm:py-32 isolate">
+      {/* PROJECTS */}
+      <section id="projects" className="relative scroll-mt-16 overflow-hidden py-24 sm:py-32 isolate">
         <MeshBackground opacity={0.4} />
         <div className="bg-glow pointer-events-none absolute inset-0 opacity-40" />
         <Container className="relative space-y-14">
-          <SectionHead
-            eyebrow="Products"
-            title="Software we build, ship and run ourselves."
-            lead="Our engineering practice is proven in production by products we operate under the Monolith Technologies Limited umbrella."
-          />
-          <div className="grid gap-5 md:grid-cols-2">
-            {products.map((p) => {
-              const inner = (
-                <>
-                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-                    {p.tag}
-                  </span>
-                  <h3 className="mt-3 flex items-center gap-2 text-3xl font-semibold tracking-[-0.035em]">
-                    {p.name}
-                    {p.href && <ArrowUpRight size={22} className="text-white/40" />}
-                  </h3>
-                  <p className="mt-3 leading-relaxed text-muted">{p.blurb}</p>
-                </>
-              );
-              return p.href ? (
-                <a
-                  key={p.name}
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener"
-                  className="card block p-8"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div key={p.name} className="card p-8">
-                  {inner}
-                </div>
-              );
-            })}
+          <div className="flex items-end justify-between gap-6">
+            <SectionHead
+              eyebrow="Projects"
+              title="Software we build, ship and run ourselves."
+              lead="Platforms and developer tools operated under the Monolith Technologies Limited umbrella."
+            />
+            <Link href="/projects" className="hidden shrink-0 text-sm text-accent-soft sm:block">
+              All projects &rarr;
+            </Link>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {projects
+              .filter((p) => p.featured)
+              .slice(0, 6)
+              .map((p) => (
+                <ProjectCard key={p.slug} project={p} />
+              ))}
           </div>
         </Container>
       </section>
