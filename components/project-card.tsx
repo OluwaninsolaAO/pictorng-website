@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Box, Gauge, Terminal, Users, type LucideIcon } from 'lucide-react';
+import { ArrowUpRight, Box, Gauge, Radio, Terminal, Users, type LucideIcon } from 'lucide-react';
 import { statusLabel, type Project } from '@/lib/projects';
 import { cn } from '@/lib/utils';
 
@@ -8,7 +9,31 @@ const icons: Record<Project['icon'], LucideIcon> = {
   terminal: Terminal,
   gauge: Gauge,
   box: Box,
+  radio: Radio,
 };
+
+export function ProjectMark({ project: p, size = 48 }: { project: Project; size?: number }) {
+  const Icon = icons[p.icon] ?? Box;
+  if (p.logo)
+    return (
+      <Image
+        src={p.logo}
+        alt=""
+        width={size}
+        height={size}
+        className="rounded-xl"
+        style={{ width: size, height: size }}
+      />
+    );
+  return (
+    <span
+      className="grid place-items-center rounded-xl bg-accent/10 text-accent"
+      style={{ width: size, height: size }}
+    >
+      <Icon size={Math.round(size * 0.46)} strokeWidth={1.75} />
+    </span>
+  );
+}
 
 export function StatusPill({ status }: { status: Project['status'] }) {
   return (
@@ -27,13 +52,10 @@ export function StatusPill({ status }: { status: Project['status'] }) {
 }
 
 export default function ProjectCard({ project: p }: { project: Project }) {
-  const Icon = icons[p.icon] ?? Box;
   return (
     <Link href={`/projects/${p.slug}`} className="card group flex h-full flex-col gap-5 p-7">
       <div className="flex items-start justify-between gap-4">
-        <span className="grid size-12 place-items-center rounded-xl bg-accent/10 text-accent">
-          <Icon size={22} strokeWidth={1.75} />
-        </span>
+        <ProjectMark project={p} />
         <StatusPill status={p.status} />
       </div>
       <div className="space-y-2">

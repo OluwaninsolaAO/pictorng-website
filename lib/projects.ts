@@ -1,5 +1,6 @@
 // Add a project by appending an object here. Cards, filters, detail pages,
 // the sitemap and the home page all read from this list.
+// Developer tools are individual entries with kind 'Developer tools', one per tool.
 
 export type ProjectStatus = 'live' | 'beta' | 'soon';
 
@@ -13,7 +14,9 @@ export type Project = {
   /** Grouping used by the filter chips on /projects. */
   kind: string;
   /** Key into the icon map in components/project-card.tsx. */
-  icon: 'users' | 'terminal' | 'gauge' | 'box';
+  icon: 'users' | 'terminal' | 'gauge' | 'box' | 'radio';
+  /** Favicon/logo under /public. Falls back to the icon. */
+  logo?: string;
   status: ProjectStatus;
   /** External site. Leave out when the project has no public site yet. */
   href?: string;
@@ -34,6 +37,7 @@ export const projects: Project[] = [
     ],
     kind: 'Platform',
     icon: 'users',
+    logo: '/projects/horbit.png',
     status: 'live',
     href: 'https://horbit.ng',
     features: [
@@ -47,43 +51,25 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'developer-tools',
-    name: 'Developer Tools',
-    tagline: 'Cloud APIs, webhook management and utilities for engineering teams.',
+    slug: 'mqtt-scope',
+    name: 'MQTT Scope',
+    tagline: 'A message inspector for MQTT networks.',
     summary: [
-      'We build developer-facing software for the parts of integration work that are tedious and easy to get wrong: receiving, inspecting and replaying webhooks, and calling dependable cloud APIs.',
-      'These are the tools we use ourselves when connecting payment providers, devices and third-party platforms.',
+      'MQTT Scope lets you subscribe to a set of topics, watch messages arrive in real time, and open any one of them to read the payload and the packet flags the broker delivered.',
+      'It is part of our developer tools line: small, focused tools for the debugging work that connected-device and integration projects keep needing.',
     ],
     kind: 'Developer tools',
-    icon: 'terminal',
+    icon: 'radio',
+    logo: '/projects/mqtt-scope.png',
     status: 'live',
+    href: 'https://mqtt-scope.monolith.ng',
     features: [
-      'Webhook management and delivery tooling',
-      'Cloud APIs for common integration tasks',
-      'Debugging and inspection utilities',
-      'Documentation written for engineers',
+      'Subscribe to one or many topics at once',
+      'Live message stream as packets arrive',
+      'Inspect the payload of any message',
+      'See the packet flags the broker delivered',
     ],
-    tags: ['APIs', 'Webhooks', 'Utilities'],
-    featured: true,
-  },
-  {
-    slug: 'smart-utility-platform',
-    name: 'Smart Utility Platform',
-    tagline: 'Metering and utility-vending software for estates and commercial users.',
-    summary: [
-      'Software that connects residents, tenants and utility customers to prepaid gas, electricity and water services through web and mobile apps and IoT hardware.',
-      'It combines customer apps, payment collection, device integration and operator dashboards in one system.',
-    ],
-    kind: 'IoT & utilities',
-    icon: 'gauge',
-    status: 'live',
-    features: [
-      'Prepaid vending through web and mobile apps',
-      'IoT meter and hardware integration',
-      'Online payments and reconciliation',
-      'Operator dashboards for estates and providers',
-    ],
-    tags: ['IoT', 'Payments', 'Metering'],
+    tags: ['MQTT', 'IoT', 'Debugging'],
     featured: true,
   },
 ];

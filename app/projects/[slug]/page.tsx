@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, Check } from 'lucide-react';
 import MeshBackground from '@/components/mesh';
-import ProjectCard, { StatusPill } from '@/components/project-card';
+import ProjectCard, { ProjectMark, StatusPill } from '@/components/project-card';
 import { ButtonLink, Container, PageHero, SectionHead } from '@/components/ui';
 import { getProject, projects } from '@/lib/projects';
 
@@ -30,6 +30,7 @@ export default async function ProjectPage({ params }: Props) {
         <MeshBackground opacity={0.4} />
         <Container className="grid gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
           <div className="space-y-6">
+            <ProjectMark project={p} size={64} />
             <SectionHead eyebrow="Overview" title={`What ${p.name} is.`} />
             {p.summary.map((t) => (
               <p key={t} className="text-lg leading-relaxed text-muted">

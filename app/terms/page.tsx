@@ -40,7 +40,7 @@ const sections: LegalSection[] = [
   {
     h: 'Our products',
     body: [
-      'We operate our own software, including Horbit, our developer tools and our smart utility platform. Use of a product may be governed by its own terms and privacy policy, which apply to that product in place of these terms where they differ. For example, Horbit is governed by the terms published on horbit.ng.',
+      'We operate our own software, including Horbit and our developer tools. Use of a product may be governed by its own terms and privacy policy, which apply to that product in place of these terms where they differ. For example, Horbit is governed by the terms published on horbit.ng.',
       'Event tickets, memberships and similar items sold by organisations through our platforms are sold by those organisations, not by Monolith, under the rules shown at checkout.',
     ],
   },
