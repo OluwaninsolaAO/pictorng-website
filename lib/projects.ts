@@ -72,6 +72,30 @@ export const projects: Project[] = [
     tags: ['MQTT', 'IoT', 'Debugging'],
     featured: true,
   },
+  {
+    slug: 'inventory-hq',
+    name: 'InventoryHQ',
+    tagline: 'Stock and sales software for shops, installed with one command.',
+    summary: [
+      'InventoryHQ runs stock, point of sale, customers and reports on one computer in a shop, and keeps working when the internet does not.',
+      'It installs on Windows, macOS or Linux with a single command that checks the download, sets the machine up and opens the shop. The internet is used for nightly backups and updates, not for selling.',
+    ],
+    kind: 'Developer tools',
+    icon: 'box',
+    logo: '/projects/inventory-hq.svg',
+    status: 'live',
+    href: 'https://ihq.monolith.ng',
+    features: [
+      'Live stock with low-stock warnings',
+      'Fast point of sale with printed or PDF receipts',
+      'Sales, margin and stock reports by day and product',
+      'Customer groups with their own discounts',
+      'Encrypted nightly cloud backup',
+      'Self-updating, with automatic rollback',
+    ],
+    tags: ['Inventory', 'Point of sale', 'Offline-first'],
+    featured: true,
+  },
 ];
 
 export const statusLabel: Record<ProjectStatus, string> = {
