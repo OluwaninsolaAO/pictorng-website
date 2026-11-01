@@ -80,7 +80,7 @@ export const projects: Project[] = [
       'InventoryHQ runs stock, point of sale, customers and reports on one computer in a shop, and keeps working when the internet does not.',
       'It installs on Windows, macOS or Linux with a single command that checks the download, sets the machine up and opens the shop. The internet is used for nightly backups and updates, not for selling.',
     ],
-    kind: 'Developer tools',
+    kind: 'Product',
     icon: 'box',
     logo: '/projects/inventory-hq.svg',
     status: 'live',
