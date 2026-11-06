@@ -1,18 +1,27 @@
-import MeshBackground from '@/components/mesh';
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Container, PageHero } from '@/components/ui';
-import { formatDate, getPosts } from '@/lib/horbit';
+import { BlogIndex } from '@/components/blog-index';
+import { PageHero } from '@/components/ui';
+import { getCategories, queryPosts } from '@/lib/horbit';
 
-export const metadata: Metadata = {
-  title: 'Journal',
-  description: 'Engineering notes and company news from Monolith Technologies Limited.',
-};
+type Props = { searchParams: Promise<{ q?: string; page?: string }> };
 
-export const revalidate = 60;
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { q, page } = await searchParams;
+  const base: Metadata = {
+    title: 'Journal',
+    description: 'Engineering notes and company news from Monolith Technologies Limited.',
+  };
+  // Search results and deep pages should not compete with the main listing.
+  return q || (page && page !== '1') ? { ...base, robots: { index: false, follow: true } } : base;
+}
 
-export default async function BlogPage() {
-  const posts = await getPosts(24);
+export default async function BlogPage({ searchParams }: Props) {
+  const { q, page } = await searchParams;
+  const current = Math.max(1, Number(page) || 1);
+  const [{ posts, meta }, categories] = await Promise.all([
+    queryPosts({ limit: 13, page: current, search: q }),
+    getCategories(),
+  ]);
 
   return (
     <>
@@ -21,50 +30,7 @@ export default async function BlogPage() {
         title="Notes from the engineering desk."
         lead="Writing on software, cloud, security and how we build."
       />
-      <section className="theme-light bg-bg py-16 text-fg sm:py-24 relative isolate">
-        <MeshBackground opacity={0.4} />
-        <Container>
-          {posts.length === 0 ? (
-            <p className="rounded-2xl border border-dashed border-line p-12 text-center text-muted">
-              New articles are on the way.
-            </p>
-          ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/blog/${p.slug}`}
-                  className="card flex flex-col overflow-hidden"
-                >
-                  {p.featuredImage?.url && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={p.featuredImage.url}
-                      alt={p.featuredImage.alt ?? ''}
-                      className="aspect-[16/9] w-full object-cover"
-                      loading="lazy"
-                    />
-                  )}
-                  <div className="space-y-3 p-6">
-                    <p className="font-mono text-xs text-muted">
-                      {formatDate(p.publishedAt)}
-                      {p.readingTimeMinutes ? ` · ${p.readingTimeMinutes} min read` : ''}
-                    </p>
-                    <h2 className="text-xl font-semibold tracking-[-0.025em] text-balance">
-                      {p.title}
-                    </h2>
-                    {p.excerpt && (
-                      <p className="line-clamp-3 text-sm leading-relaxed text-muted">
-                        {p.excerpt}
-                      </p>
-                    )}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </Container>
-      </section>
+      <BlogIndex posts={posts} meta={meta} categories={categories} q={q} basePath="/blog" showFeatured={!q && current === 1} />
     </>
   );
 }
